@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3433633567564814754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9986398, y: -0.25165853, z: -1.9220309}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poisonZone: {fileID: 1498924332658071943, guid: f0e3a1425b8d55c468f352df9e94e398, type: 3}
-  speed: 1
-  rotationSpeed: 0
+  speed: 3
+  rotationSpeed: 1
   timeToBreak: 1
+  instantiated: 0
 --- !u!50 &-4109211946758364540
 Rigidbody2D:
   serializedVersion: 4

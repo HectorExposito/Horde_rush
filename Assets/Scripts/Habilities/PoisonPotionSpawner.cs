@@ -23,19 +23,19 @@ public class PoisonPotionSpawner : MonoBehaviour
         {
             case 1:
                 numberOfPotions = 1;
-                delay = 5;
+                delay = 15f;
                 break;
             case 2:
                 numberOfPotions = 2;
                 break;
             case 3:
-                delay = 3;
+                delay = 12.5f;
                 break;
             case 4:
                 numberOfPotions = 3;
                 break;
             case 5:
-                delay = 1.75f;
+                delay = 10f;
                 break;
         }
         actualDelay = delay;

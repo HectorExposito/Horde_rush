@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PoisonZone : MonoBehaviour
 {
-    public int level;
+    int level;
     float radio;
     float lifeTime;
     int damage;
@@ -13,12 +13,9 @@ public class PoisonZone : MonoBehaviour
     float actualAttackDelay;
     void Start()
     {
-        level = FindObjectOfType<PoisonPotionSpawner>().level;
-        if (FindObjectOfType<PoisonPotionSpawner>() != null)
-        {
-            Debug.Log(level);
-        }
-        
+        this.transform.parent = null;
+        this.transform.localScale = new Vector3(1, 1, 1);
+        level = FindObjectOfType<PlayerManager>().GetComponent<PoisonPotionSpawner>().level;
         setValues();
     }
 
@@ -70,7 +67,7 @@ public class PoisonZone : MonoBehaviour
         }
         else
         {
-            //lifeTime -= Time.deltaTime
+            lifeTime -= Time.deltaTime;
             actualAttackDelay -= Time.deltaTime;
         }
     }

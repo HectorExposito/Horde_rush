@@ -9,11 +9,11 @@ public class PoisonPotion : MonoBehaviour
     private Vector3 targetPosition;
     public float rotationSpeed;
     public float timeToBreak;
+    public bool instantiated;
     void Start()
     {
-
-        speed = 1;
-        targetPosition = new Vector3(Random.Range(-1,1), Random.Range(-1, 1), 0);
+        transform.parent = null;
+        targetPosition = new Vector3(Random.Range(-10,10), Random.Range(-10, 10), 0);
         gameObject.GetComponent<Rigidbody2D>().velocity = (targetPosition - transform.position).normalized * speed;
     }
 
@@ -24,12 +24,23 @@ public class PoisonPotion : MonoBehaviour
         
         if (timeToBreak<=0)
         {
-            Instantiate(poisonZone, transform);
-            Destroy(gameObject);
+            if (!instantiated)
+            {
+                this.transform.localScale = new Vector3(0, 0, 0);
+                Instantiate(poisonZone, transform);
+                instantiated = true;
+                
+            }
+            timeToBreak -= Time.deltaTime;
+
         }
         else
         {
             timeToBreak -= Time.deltaTime;
+        }
+        if (timeToBreak <= -0.1)
+        {
+            Destroy(gameObject);
         }
     }
 }
