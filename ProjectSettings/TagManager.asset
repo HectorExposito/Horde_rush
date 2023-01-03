@@ -18,6 +18,8 @@ TagManager:
   - Shuriken
   - PoisonZone
   - PoisonPotion
+  - IcePotion
+  - IceZone
   layers:
   - Default
   - TransparentFX

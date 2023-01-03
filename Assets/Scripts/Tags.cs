@@ -17,4 +17,5 @@ public class Tags : MonoBehaviour
     public const string shuriken = "Shuriken";
     public const string poisonPotion = "PoisonPotion";
     public const string poisonZone = "PoisonZone";
+    public const string icePotion = "IcePotion";
 }

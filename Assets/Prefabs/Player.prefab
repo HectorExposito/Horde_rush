@@ -427,7 +427,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 306995734, guid: 307aaf48e6dfa9d4680101fec2f8ab5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -533,6 +533,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+  damageModifier: 0
+  defenseModifier: 0
+  speedModifier: 0
   weapon: {fileID: 2839944008027943609, guid: 253941b98711d584cbfdded34f4177ab, type: 3}
 --- !u!1 &8588601842060448844
 GameObject:

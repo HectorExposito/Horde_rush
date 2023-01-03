@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class EnemiesController : MonoBehaviour
 {
     public GameObject player;
     public float speed;
+    public float previousSpeed;
     private float distance;
     public float wizardDistance;
     private bool movement=true;
@@ -41,5 +43,16 @@ public class EnemiesController : MonoBehaviour
     public float GetDistance()
     {
         return distance;
+    }
+
+    internal void slowDown()
+    {
+        previousSpeed = speed;
+        speed = speed / 4;
+    }
+
+    internal void setDefaultSpeed()
+    {
+        speed = previousSpeed;
     }
 }

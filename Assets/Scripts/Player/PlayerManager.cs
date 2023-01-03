@@ -64,6 +64,16 @@ public class PlayerManager : MonoBehaviour
                     GetComponent<PoisonPotionSpawner>().levelUp();
                 }
                 break;
+            case Tags.icePotion:
+                if (!GetComponent<IcePotionSpawner>().enabled)
+                {
+                    GetComponent<IcePotionSpawner>().enabled = true;
+                }
+                else
+                {
+                    GetComponent<IcePotionSpawner>().levelUp();
+                }
+                break;
         }
     }
     
