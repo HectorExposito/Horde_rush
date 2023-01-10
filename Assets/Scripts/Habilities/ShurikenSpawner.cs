@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShurikenSpawner : MonoBehaviour
@@ -17,7 +14,6 @@ public class ShurikenSpawner : MonoBehaviour
         actualDelay = delay;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (actualDelay <= 0)
@@ -25,8 +21,6 @@ public class ShurikenSpawner : MonoBehaviour
             for (int i = 0; i < numberOfShurikens; i++)
             {
                 Instantiate(shuriken, transform);
-                Instantiate(shuriken,new Vector3(transform.position.x*i,transform.position.y * i, transform.position.z*i),this.transform.rotation);
-                
             }
             
             actualDelay = delay;
@@ -52,14 +46,13 @@ public class ShurikenSpawner : MonoBehaviour
                 break;
             case 2:
                 numberOfShurikens = 2;
-                delay = 7;
                 break;
             case 3:
-                delay = 5;
+                delay = 7;
                 break;
             case 4:
                 numberOfShurikens = 3;
-                delay = 3;
+                delay = 5;
                 break;
             case 5:
                 numberOfShurikens = 4;

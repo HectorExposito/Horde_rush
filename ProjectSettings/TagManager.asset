@@ -20,6 +20,8 @@ TagManager:
   - PoisonPotion
   - IcePotion
   - IceZone
+  - Spear
+  - TwistedWand
   layers:
   - Default
   - TransparentFX

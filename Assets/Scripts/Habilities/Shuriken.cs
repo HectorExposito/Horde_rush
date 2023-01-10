@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class Shuriken : MonoBehaviour
@@ -11,28 +12,66 @@ public class Shuriken : MonoBehaviour
     private float posY;
     private float angle;
     private float lifeTime;
-
+    static int numberOfShuriken=1;
+    public int s;
     private float damage;
     void Start()
     {
         RotationCenter = FindObjectOfType<PlayerManager>().transform;
+        Debug.Log(transform.position);
         lifeTime = 5;
         damage = 10;
+        setInitialPosition();
+    }
+
+    private void setInitialPosition()
+    {
+        if (numberOfShuriken < 4)
+        {
+            numberOfShuriken++;
+        }
+        else
+        {
+            numberOfShuriken = 1;
+        }
+        s = numberOfShuriken;
+        switch (numberOfShuriken)
+        {
+            case 1:
+                angle = 0;
+                break;
+            case 2:
+                angle = 1.5f;
+                break;
+            case 3:
+                angle = 3;
+                break;
+            case 4:
+                angle = -1.5f;
+                break;
+        }
+        Debug.Log(angle);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(Tags.enemy))
+        
+        switch (collision.tag)
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(damage);
-        }
-        else if (collision.CompareTag(Tags.chest))
-        {
-            collision.GetComponent<Animator>().SetTrigger(AnimationParametersList.openChest);
-            collision.GetComponent<Chest>().spawnItem();
+            case Tags.enemy:
+                collision.GetComponent<EnemyManager>().TakeDamage(damage);
+                break;
+            case Tags.chest:
+                collision.GetComponent<Animator>().SetTrigger(AnimationParametersList.openChest);
+                collision.GetComponent<Chest>().spawnItem();
+                break;
+            case Tags.spell:
+                Destroy(collision.gameObject);
+                break;
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (lifeTime >= 0)
@@ -54,6 +93,5 @@ public class Shuriken : MonoBehaviour
             Destroy(gameObject);
         }
         
-        //transform.RotateAround(Vector3.zero, orbitSpeed * Time.deltaTime,Vector3.);
     }
 }

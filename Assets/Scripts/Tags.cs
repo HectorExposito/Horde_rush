@@ -18,4 +18,7 @@ public class Tags : MonoBehaviour
     public const string poisonPotion = "PoisonPotion";
     public const string poisonZone = "PoisonZone";
     public const string icePotion = "IcePotion";
+    public const string spear = "Spear";
+    public const string beam = "Beam";
+    public const string twistedWand = "TwistedWand";
 }

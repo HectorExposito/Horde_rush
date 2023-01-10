@@ -74,6 +74,26 @@ public class PlayerManager : MonoBehaviour
                     GetComponent<IcePotionSpawner>().levelUp();
                 }
                 break;
+            case Tags.spear:
+                if (!GetComponent<SpearSpawner>().enabled)
+                {
+                    GetComponent<SpearSpawner>().enabled = true;
+                }
+                else
+                {
+                    GetComponent<SpearSpawner>().levelUp();
+                }
+                break;
+            case Tags.twistedWand:
+                if (!GetComponent<BeamSpawner>().enabled)
+                {
+                    GetComponent<BeamSpawner>().enabled = true;
+                }
+                else
+                {
+                    GetComponent<BeamSpawner>().levelUp();
+                }
+                break;
         }
     }
     
