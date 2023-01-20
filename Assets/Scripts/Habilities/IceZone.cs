@@ -17,7 +17,6 @@ public class IceZone : MonoBehaviour
         this.transform.parent = null;
         this.transform.localScale = new Vector3(1, 1, 1);
         enemiesInTheIceZone = new LinkedList<Collider2D>();
-        //level = FindObjectOfType<PlayerManager>().GetComponent<PoisonPotionSpawner>().level;
         level = 1;
         setValues();
     }

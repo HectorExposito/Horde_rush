@@ -7,8 +7,10 @@ public class ShieldManager : MonoBehaviour
     public Sprite bigShield;
     public Sprite smallShield;
     float increment;
+    float timeToPickUp;
     void Start()
     {
+        timeToPickUp = 0.5f;
         int num;
         num = Random.Range(0, 100);
         if (num<85)
@@ -22,10 +24,16 @@ public class ShieldManager : MonoBehaviour
             increment = 0.4f;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag(Tags.player))
+        if (timeToPickUp > 0)
+        {
+            timeToPickUp -= Time.deltaTime;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Tags.player) && timeToPickUp <= 0)
         {
             collision.GetComponent<PlayerManager>().increaseDefense(increment);
             Destroy(gameObject);

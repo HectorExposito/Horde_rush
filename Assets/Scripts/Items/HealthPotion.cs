@@ -6,8 +6,10 @@ public class HealthPotion : MonoBehaviour
     public Sprite bigPotion;
     public Sprite smallPotion;
     private float health;
+    float timeToPickUp;
     void Start()
     {
+        timeToPickUp = 0.5f;
         int num;
         num = Random.Range(0,100);
         if (num<20)
@@ -21,10 +23,16 @@ public class HealthPotion : MonoBehaviour
             health = 10;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag(Tags.player))
+        if (timeToPickUp > 0)
+        {
+            timeToPickUp -= Time.deltaTime;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag(Tags.player) && timeToPickUp <= 0)
         {
             collision.GetComponent<PlayerManager>().RecoverHealth(health);
             Destroy(gameObject);

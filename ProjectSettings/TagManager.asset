@@ -22,6 +22,7 @@ TagManager:
   - IceZone
   - Spear
   - TwistedWand
+  - ExperienceOrb
   layers:
   - Default
   - TransparentFX

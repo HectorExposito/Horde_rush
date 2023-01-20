@@ -6,9 +6,11 @@ public class Chest : MonoBehaviour
 {
     public GameObject[] possibleItems;
     private GameObject item;
+    int num;
     void Start()
     {
-        item = possibleItems[Random.Range(0,possibleItems.Length)];
+        num = Random.Range(0, possibleItems.Length - 1);
+        item = possibleItems[num];
     }
 
     public void spawnItem()

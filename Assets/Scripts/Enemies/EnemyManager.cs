@@ -7,12 +7,15 @@ public class EnemyManager : MonoBehaviour
 {
     private Enemy enemy;
     public Enemy.EnemyType enemyType;
-
-    //private float actualAttackDelay;
+    bool killed;
+    float poisonZoneLifeTime;
+    float poisonDamageDelay;
+    float poisonDamage;
+    private float actualAttackDelay;
+    public ExperienceOrb experienceOrb;
 
     private void Start()
     {
-        
         InitialValues();
     }
 
@@ -42,40 +45,77 @@ public class EnemyManager : MonoBehaviour
         }
         this.GetComponent<SpriteRenderer>().sprite = enemy.sprite;
         this.GetComponent<EnemiesController>().speed = enemy.speed;
-        //actualAttackDelay = 0;
+        actualAttackDelay = enemy.attackDelay;
     }
 
     public void TakeDamage(float defaultDamage)
     {
-        GetComponent<Animator>().SetTrigger(AnimationParametersList.enemyDamageTaken);
-        //Debug.Log(defaultDamage);
-        enemy.health -= defaultDamage;
-        //Debug.Log(enemy.health);
-        if (enemy.health <= 0)
+        if (this.GetComponent<GhostManager>() == null || !this.GetComponent<GhostManager>().ghostCollider.isTrigger)
         {
-            Destroy(this.gameObject);
+            GetComponent<Animator>().SetTrigger(AnimationParametersList.enemyDamageTaken);
+            enemy.health -= defaultDamage;
+            if (enemy.health <= 0)
+            {
+                if (!killed)
+                {
+                    killed = true;
+                    FindObjectOfType<LevelManager>().enemyKilled();
+                    
+                }
+                Instantiate(experienceOrb, transform.position, transform.rotation);
+                Destroy(this.gameObject);
+            }
         }
+        
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.gameObject.transform.CompareTag(Tags.player))
+        if (collision.collider.gameObject.transform.CompareTag(Tags.player)&&actualAttackDelay<=0)
         {
              collision.gameObject.GetComponent<PlayerManager>().TakeDamage(enemy.damage);
+             actualAttackDelay = enemy.attackDelay;
         }
-        //actualAttackDelay = enemy.attackDelay;
+        actualAttackDelay -= Time.deltaTime;
     }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.transform.CompareTag(Tags.player))
+        {
+            actualAttackDelay = enemy.attackDelay;
+        }
+    }
     public Enemy GetEnemy()
     {
         return enemy;
     }
 
+    public void poisoned(float poisonZoneLifeTime,float poisonDamageDelay, float damage)
+    {
+        this.poisonZoneLifeTime = poisonZoneLifeTime;
+        this.poisonDamageDelay = poisonDamageDelay;
+        this.poisonDamage = damage;
+        takePoisonDamage();
+    }
+
+    private void takePoisonDamage()
+    {
+        if (poisonZoneLifeTime > 0)
+        {
+            StartCoroutine(PoisonDamageCoroutine());
+        }
+    }
+
     private void Update()
     {
-        /*if (actualAttackDelay > 0)
-        {
-            actualAttackDelay -= Time.deltaTime;
-        }*/
+        
+    }
+
+    private IEnumerator PoisonDamageCoroutine()
+    {
+        yield return new WaitForSeconds(poisonDamageDelay);
+        this.TakeDamage(poisonDamage);
+        takePoisonDamage();
+        poisonZoneLifeTime -= Time.deltaTime;
     }
 }

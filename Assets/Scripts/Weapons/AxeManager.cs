@@ -29,7 +29,11 @@ public class AxeManager : MonoBehaviour
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(axe.defaultDamage);
+            if (collision.GetComponent<GhostManager>() == null || !collision.GetComponent<GhostManager>().ghostCollider.isTrigger)
+            {
+                collision.GetComponent<EnemyManager>().TakeDamage(axe.defaultDamage);
+            }
+            
         }
     }
     private void Attack()

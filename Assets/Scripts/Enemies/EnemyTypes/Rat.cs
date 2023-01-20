@@ -11,10 +11,10 @@ public class Rat : Enemy
     }
     public override void InitialValues(EnemyType enemyType)
     {
-        health = 100;
-        speed = 3;
-        damage = 1;
-        attackDelay = 3;
+        health = 1;
+        speed = 2;
+        damage = 3;
+        attackDelay = 1;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }
 }

@@ -5,9 +5,22 @@ using UnityEngine;
 
 public class Habilities : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    float timeToPickUp;
+    private void Start()
     {
-        if (collision.CompareTag(Tags.player))
+        timeToPickUp = 0.5f;
+    }
+    private void Update()
+    {
+        if (timeToPickUp > 0)
+        {
+            timeToPickUp -= Time.deltaTime;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag(Tags.player)&&timeToPickUp<=0)
         {
             GiveHability();
             Destroy(gameObject);

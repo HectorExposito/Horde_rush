@@ -36,6 +36,8 @@ public class IcePotionSpawner : MonoBehaviour
             case 5:
                 delay = 10f;
                 break;
+            default:
+                break;
         }
         actualDelay = delay;
     }

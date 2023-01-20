@@ -96,7 +96,12 @@ public class PlayerManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    internal void levelUp()
+    {
+        
+    }
+
     public void TakeDamage(float damage)
     {
         GetComponent<Animator>().SetTrigger(AnimationParametersList.playerDamageTaken);

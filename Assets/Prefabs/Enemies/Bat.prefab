@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 254162516, guid: 307aaf48e6dfa9d4680101fec2f8ab5f, type: 3}
+  m_Sprite: {fileID: -868044022, guid: 307aaf48e6dfa9d4680101fec2f8ab5f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 0.75}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  experienceOrb: {fileID: 200224458039016758, guid: 083429562ff2b9949994ea3be6fe2aa5, type: 3}
 --- !u!95 &6295571744368347239
 Animator:
   serializedVersion: 4

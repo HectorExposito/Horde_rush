@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,12 +12,22 @@ public class LevelManager : MonoBehaviour
     float maxY;
     float minX;
     float minY;
+
+    public Text numeros;
+    public int enemiesLeft;
     void Start()
     {
+        enemiesLeft = 30;
         numWave = 1;
         setBorders();
+        numeros.text = enemiesLeft.ToString();
     }
-
+    
+    public void enemyKilled()
+    {
+        enemiesLeft--;
+        numeros.text = enemiesLeft.ToString();
+    }
     private void setBorders()
     {
         GameObject[] borders = new GameObject[4];

@@ -8,9 +8,10 @@ public class Beam : MonoBehaviour
     float speed;
     float damage;
     public static int direction;//arrows show the direction of the beam 1:<--  2:^  3:-->  4:v
+    PlayerManager player;
     void Start()
     {
-        
+        player = FindObjectOfType<PlayerManager>();
         transform.parent = null;
         if (direction < 4)
         {
@@ -76,7 +77,7 @@ public class Beam : MonoBehaviour
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(damage);
+            collision.GetComponent<EnemyManager>().TakeDamage(damage*player.damageModifier);
         }
     }
 }

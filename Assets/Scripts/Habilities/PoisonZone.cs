@@ -8,11 +8,14 @@ public class PoisonZone : MonoBehaviour
     int level;
     float radio;
     float lifeTime;
-    int damage;
+    float damage;
     float attackDelay;
     float actualAttackDelay;
+    HashSet<Collider2D> enemiesInThePosionZone;
+    
     void Start()
     {
+        enemiesInThePosionZone = new HashSet<Collider2D>();
         this.transform.parent = null;
         this.transform.localScale = new Vector3(1, 1, 1);
         level = FindObjectOfType<PlayerManager>().GetComponent<PoisonPotionSpawner>().level;
@@ -72,17 +75,13 @@ public class PoisonZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            if (actualAttackDelay <= 0)
-            {
-                collision.GetComponent<EnemyManager>().TakeDamage(damage);
-                actualAttackDelay = attackDelay;
-            }
+            collision.GetComponent<EnemyManager>().poisoned(lifeTime, attackDelay,damage);
         }
-        
-        
     }
+
+    
 }

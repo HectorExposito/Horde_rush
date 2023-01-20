@@ -20,8 +20,12 @@ public class WizardManager : MonoBehaviour
         }
         else
         {
-             Attack();
-             actualAttackDelay = GetComponent<EnemyManager>().GetEnemy().attackDelay;
+            if (FindObjectOfType<PlayerManager>() != null)
+            {
+                Attack();
+                actualAttackDelay = GetComponent<EnemyManager>().GetEnemy().attackDelay;
+            }
+             
         }
     }
 

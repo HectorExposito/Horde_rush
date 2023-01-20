@@ -30,7 +30,11 @@ public class SwordManager : MonoBehaviour
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(sword.defaultDamage);
+            if (collision.GetComponent<GhostManager>() == null || !collision.GetComponent<GhostManager>().ghostCollider.isTrigger)
+            {
+                collision.GetComponent<EnemyManager>().TakeDamage(sword.defaultDamage);
+            }
+            
         }
     }
 

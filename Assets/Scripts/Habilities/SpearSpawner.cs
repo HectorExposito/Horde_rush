@@ -79,6 +79,8 @@ public class SpearSpawner : MonoBehaviour
             case 5:
                 attackDelay = 2;
                 break;
+            default:
+                break;
         }
     }
 }

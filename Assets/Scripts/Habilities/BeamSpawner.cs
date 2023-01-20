@@ -89,6 +89,8 @@ public class BeamSpawner : MonoBehaviour
                 speed = 5;
                 attackDelay = 5;
                 break;
+            default:
+                break;
         }
     }
 

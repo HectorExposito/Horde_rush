@@ -6,8 +6,10 @@ public class PlayerSpell : MonoBehaviour
     float damage;
     private Vector3 targetPosition;
     public float rotationSpeed;
+    PlayerManager player;
     void Start()
     {
+        player = FindObjectOfType<PlayerManager>();
         damage = FindObjectOfType<Wand>().GetDamage();
         speed = FindObjectOfType<Wand>().GetSpeed();
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(Tags.enemy);
@@ -26,7 +28,7 @@ public class PlayerSpell : MonoBehaviour
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(damage);
+            collision.GetComponent<EnemyManager>().TakeDamage(damage*player.damageModifier);
             Destroy(gameObject);
         }
         else if (collision.CompareTag(Tags.chest))

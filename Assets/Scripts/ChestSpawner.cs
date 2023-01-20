@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ChestSpawner : MonoBehaviour
 {
-    const int MAX_CHEST =4;
-    public int numberOfChests=0;
+    public const int MAX_CHEST=20;
+    int numberOfChests=0;
     public GameObject chest;
     private LevelManager levelManager;
     
@@ -20,7 +20,6 @@ public class ChestSpawner : MonoBehaviour
         numberOfChests--;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (MAX_CHEST > numberOfChests)

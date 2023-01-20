@@ -11,8 +11,8 @@ public class Warrior : Enemy
     public override void InitialValues(EnemyType enemyType)
     {
         health = 100;
-        speed = 1;
-        damage = 1;
+        speed = 1.5f;
+        damage = 5;
         attackDelay = 3;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }

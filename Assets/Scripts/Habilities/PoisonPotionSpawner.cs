@@ -18,7 +18,6 @@ public class PoisonPotionSpawner : MonoBehaviour
 
     private void setValues()
     {
-        Debug.Log("Spawner"+level);
         switch (level)
         {
             case 1:
@@ -36,6 +35,8 @@ public class PoisonPotionSpawner : MonoBehaviour
                 break;
             case 5:
                 delay = 10f;
+                break;
+            default:
                 break;
         }
         actualDelay = delay;

@@ -18,26 +18,32 @@ public class EnemiesController : MonoBehaviour
     }
     void Update()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        
-        if (GetComponent<WizardManager>() != null)
+        Vector3 direction = new Vector3(0,0,0);
+        if (player!=null)
         {
-            distance = direction.magnitude;
-            //Debug.Log(distance);
-            if (Mathf.Abs(distance) < wizardDistance)
-            {
-                movement = false;
-            }
-            else if(movement==false)
-            {
-                movement = true;
-            }
+            direction = player.transform.position - transform.position;
         }
+        if (player != null)
+        {
+            if (GetComponent<WizardManager>() != null)
+            {
+                distance = direction.magnitude;
+                if (Mathf.Abs(distance) < wizardDistance)
+                {
+                    movement = false;
+                }
+                else if (movement == false)
+                {
+                    movement = true;
+                }
+            }
 
-        if (movement)
-        {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            if (movement)
+            {
+                transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            }
         }
+        
     }
 
     public float GetDistance()

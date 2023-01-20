@@ -30,7 +30,11 @@ public class DaggerManager : MonoBehaviour
     {
         if (collision.CompareTag(Tags.enemy))
         {
-            collision.GetComponent<EnemyManager>().TakeDamage(dagger.defaultDamage);
+            if (collision.GetComponent<GhostManager>()==null || !collision.GetComponent<GhostManager>().ghostCollider.isTrigger)
+            {
+                collision.GetComponent<EnemyManager>().TakeDamage(dagger.defaultDamage);
+            }
+            
         }
     }
 

@@ -15,8 +15,10 @@ public class Shuriken : MonoBehaviour
     static int numberOfShuriken=1;
     public int s;
     private float damage;
+    PlayerManager player;
     void Start()
     {
+        player = FindObjectOfType<PlayerManager>();
         RotationCenter = FindObjectOfType<PlayerManager>().transform;
         Debug.Log(transform.position);
         lifeTime = 5;
@@ -60,7 +62,7 @@ public class Shuriken : MonoBehaviour
         switch (collision.tag)
         {
             case Tags.enemy:
-                collision.GetComponent<EnemyManager>().TakeDamage(damage);
+                collision.GetComponent<EnemyManager>().TakeDamage(damage*player.damageModifier);
                 break;
             case Tags.chest:
                 collision.GetComponent<Animator>().SetTrigger(AnimationParametersList.openChest);

@@ -21,4 +21,5 @@ public class Tags : MonoBehaviour
     public const string spear = "Spear";
     public const string beam = "Beam";
     public const string twistedWand = "TwistedWand";
+    public const string experienceOrb="ExperienceOrb";
 }

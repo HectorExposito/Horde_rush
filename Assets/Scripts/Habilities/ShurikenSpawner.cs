@@ -12,6 +12,7 @@ public class ShurikenSpawner : MonoBehaviour
         level = 1;
         delay = 10;
         actualDelay = delay;
+        setValues();
     }
 
     void Update()
@@ -56,6 +57,8 @@ public class ShurikenSpawner : MonoBehaviour
                 break;
             case 5:
                 numberOfShurikens = 4;
+                break;
+            default:
                 break;
         }
     }

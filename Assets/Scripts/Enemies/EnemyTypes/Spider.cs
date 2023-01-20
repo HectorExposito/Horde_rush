@@ -10,8 +10,8 @@ public class Spider : Enemy
     }
     public override void InitialValues(EnemyType enemyType)
     {
-        health = 100;
-        speed = 4;
+        health = 10;
+        speed = 2.2f;
         damage = 1;
         attackDelay = 2;
         sprite = EnemiesList.instance.GetSprite(enemyType);

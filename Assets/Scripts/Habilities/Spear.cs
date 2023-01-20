@@ -11,9 +11,11 @@ public class Spear : MonoBehaviour
     float actualBleedingTime;
     private Vector3 targetPosition;
     bool alreadyAttached;
+    PlayerManager player;
     void Start()
     {
-        attachDelay=0.25f;
+        player = FindObjectOfType<PlayerManager>();
+        attachDelay =0.25f;
         damage = FindObjectOfType<SpearSpawner>().GetDamage();
         speed = FindObjectOfType<SpearSpawner>().GetSpeed();
         bleedingTime = 1;
@@ -35,6 +37,7 @@ public class Spear : MonoBehaviour
             {
                 this.transform.parent = collision.transform;
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0) ;
+                transform.parent.gameObject.GetComponent<EnemyManager>().TakeDamage(damage*player.damageModifier);
                 alreadyAttached = true;
             }
         }

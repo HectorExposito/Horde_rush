@@ -2,27 +2,30 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+
 public class EnemySpawner : MonoBehaviour
 {
     public int numberOfEnemies;
     float time;
     public GameObject[] enemiesPrefabs;
+    public LevelManager lm;
 
-    float maxX;
-    float maxY;
-    float minX;
-    float minY;
-
-    LevelManager lm;
+    public Transform upperBorder;
+    public Transform rightBorder;
+    public Transform bottomBorder;
+    public Transform leftBorder;
+    
+    public Transform playerTransform;
     private void Start()
     {
-        initialValues();
+        //initialValues();
+        numberOfEnemies = 30;
         spawnEnemy();
+
     }
 
     private void initialValues()
     {
-        lm = FindObjectOfType<LevelManager>();
         switch (lm.numWave)
         {
             case 1:
@@ -33,20 +36,34 @@ public class EnemySpawner : MonoBehaviour
 
     private void spawnEnemy()
     {
+
         if (numberOfEnemies > 0)
         {
+            
             StartCoroutine(SpawnEnemyCoroutine());
+            Debug.Log(numberOfEnemies);
         }
-        numberOfEnemies--;
+        
         
     }
 
     private IEnumerator SpawnEnemyCoroutine()
     {
-        time = UnityEngine.Random.Range(1, 10);
-        float x = UnityEngine.Random.Range(lm.GetMinX(), lm.GetMaxX());
-        float y = UnityEngine.Random.Range(lm.GetMinY(), lm.GetMaxY());
-        Instantiate(enemiesPrefabs[5],new Vector3(x,y,0),Quaternion.Euler(0,0,0));
+        float x;
+        float y;
+        time = UnityEngine.Random.Range(1, 5);
+        x = UnityEngine.Random.Range(lm.GetMinX(), lm.GetMaxX());
+        y = UnityEngine.Random.Range(lm.GetMinY(), lm.GetMaxY());
+        Debug.Log(Vector3.Distance(new Vector3(x, y, 0), playerTransform.position));
+        if (Vector3.Distance(new Vector3(x, y, 0), playerTransform.position)>5)
+        {
+            Instantiate(enemiesPrefabs[new System.Random().Next(0,6)], new Vector3(x, y, 0), Quaternion.Euler(0, 0, 0));
+            numberOfEnemies--;
+        }
+        else
+        {
+            time = 0;
+        }
         yield return new WaitForSeconds(time);
         spawnEnemy();
     }
