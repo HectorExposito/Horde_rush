@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,19 +12,26 @@ public class LevelManager : MonoBehaviour
     float minY;
 
     public Text numeros;
-    public int enemiesLeft;
+    public int enemiesKilled;
     void Start()
     {
-        enemiesLeft = 30;
+        enemiesKilled =0;
         numWave = 1;
         setBorders();
-        numeros.text = enemiesLeft.ToString();
+        numeros.text = enemiesKilled.ToString();
     }
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            unpauseGame();
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
     public void enemyKilled()
     {
-        enemiesLeft--;
-        numeros.text = enemiesLeft.ToString();
+        enemiesKilled++;
+        numeros.text = enemiesKilled.ToString();
     }
     private void setBorders()
     {
@@ -73,5 +78,14 @@ public class LevelManager : MonoBehaviour
     {
         return maxX;
     }
-    
+
+    internal void pauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void unpauseGame()
+    {
+        Time.timeScale = 1;
+    }
 }

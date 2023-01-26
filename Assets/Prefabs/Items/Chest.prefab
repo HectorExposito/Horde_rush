@@ -49,15 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleItems:
   - {fileID: 6033858340820456463, guid: 41a44503a2813c24bb37057d0c64cea9, type: 3}
-  - {fileID: 6933094815374453662, guid: 762e942ffcbabca4597ccab0761b303f, type: 3}
   - {fileID: 3436118174558119568, guid: ed1caa5a1ad39af4e802b6fed63c2da6, type: 3}
-  - {fileID: 8940656000358384002, guid: c640a1e9907096a4588059b8649e7960, type: 3}
   - {fileID: 7075529980698699291, guid: 28e4fe5721edaef479a80b45e7f8ec64, type: 3}
   - {fileID: 425893398374546126, guid: f7a9f4517d226bb4fa7d5a7ffec77f55, type: 3}
-  - {fileID: 3211901424767965229, guid: f747bdfe3b2c23140aa7adc1072a81fe, type: 3}
-  - {fileID: 5656127771402197085, guid: 396ff488595bda740b0115fc161edd06, type: 3}
-  - {fileID: 7005942544254513933, guid: 2002dc372e2a9bf4aa3498b1920eb456, type: 3}
-  - {fileID: 2418691339726768083, guid: 6814bdf7de0e358499e0de8b228e339c, type: 3}
+  possibleExperienceOrbs:
+  - {fileID: 228464162858909046, guid: 09064a4699bafd741a5ecf459b2667e0, type: 3}
+  - {fileID: 228464162858909046, guid: ad841dd9256d97043a499f2c80f93c6f, type: 3}
+  - {fileID: 228464162858909046, guid: 083429562ff2b9949994ea3be6fe2aa5, type: 3}
 --- !u!212 &5288120743151311702
 SpriteRenderer:
   m_ObjectHideFlags: 0

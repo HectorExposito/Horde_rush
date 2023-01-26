@@ -35,7 +35,7 @@ public class Spear : MonoBehaviour
         {
             if (!alreadyAttached && attachDelay<=0)
             {
-                this.transform.parent = collision.transform;
+                transform.parent = collision.transform;
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0) ;
                 transform.parent.gameObject.GetComponent<EnemyManager>().TakeDamage(damage*player.damageModifier);
                 alreadyAttached = true;

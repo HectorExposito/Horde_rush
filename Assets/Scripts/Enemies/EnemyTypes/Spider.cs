@@ -12,7 +12,7 @@ public class Spider : Enemy
     {
         health = 10;
         speed = 2.2f;
-        damage = 1;
+        damage = 10;
         attackDelay = 2;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }

@@ -45,7 +45,7 @@ public class EnemyManager : MonoBehaviour
         }
         this.GetComponent<SpriteRenderer>().sprite = enemy.sprite;
         this.GetComponent<EnemiesController>().speed = enemy.speed;
-        actualAttackDelay = enemy.attackDelay;
+        actualAttackDelay = 0;
     }
 
     public void TakeDamage(float defaultDamage)
@@ -82,7 +82,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (collision.collider.gameObject.transform.CompareTag(Tags.player))
         {
-            actualAttackDelay = enemy.attackDelay;
+            actualAttackDelay = 0;
         }
     }
     public Enemy GetEnemy()
@@ -94,7 +94,8 @@ public class EnemyManager : MonoBehaviour
     {
         this.poisonZoneLifeTime = poisonZoneLifeTime;
         this.poisonDamageDelay = poisonDamageDelay;
-        this.poisonDamage = damage;
+        poisonDamage = damage;
+        gameObject.GetComponent<SpriteRenderer>().material.color = Color.green;
         takePoisonDamage();
     }
 
@@ -104,18 +105,20 @@ public class EnemyManager : MonoBehaviour
         {
             StartCoroutine(PoisonDamageCoroutine());
         }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().material.color = Color.white;
+        }
     }
 
-    private void Update()
-    {
-        
-    }
 
     private IEnumerator PoisonDamageCoroutine()
     {
         yield return new WaitForSeconds(poisonDamageDelay);
         this.TakeDamage(poisonDamage);
+        poisonZoneLifeTime -= poisonDamageDelay;
+        Debug.Log(poisonZoneLifeTime);
         takePoisonDamage();
-        poisonZoneLifeTime -= Time.deltaTime;
+        
     }
 }

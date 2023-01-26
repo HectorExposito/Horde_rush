@@ -22,4 +22,7 @@ public class Tags : MonoBehaviour
     public const string beam = "Beam";
     public const string twistedWand = "TwistedWand";
     public const string experienceOrb="ExperienceOrb";
+    public const string habilityIcon ="HabilityIcon";
+    public const string habilityName = "HabilityName";
+    public const string habilityDescription = "HabilityDescription";
 }

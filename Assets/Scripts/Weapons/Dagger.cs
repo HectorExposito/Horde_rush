@@ -11,7 +11,7 @@ public class Dagger : Weapon
     public override void InitialValues()
     {
         weaponType = Weapon.WeaponType.Dagger;
-        defaultDamage = 10;
+        defaultDamage = 5;
         sprite = WeaponsList.Instance.dagger;
         radioGolpe = 1;
         attackDelay = 1f;

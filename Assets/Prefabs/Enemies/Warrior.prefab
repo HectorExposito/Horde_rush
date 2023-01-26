@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 3
-  experienceOrb: {fileID: 200224458039016758, guid: 083429562ff2b9949994ea3be6fe2aa5, type: 3}
+  experienceOrb: {fileID: 200224458039016758, guid: ad841dd9256d97043a499f2c80f93c6f, type: 3}
 --- !u!95 &6403334914218269490
 Animator:
   serializedVersion: 4

@@ -13,7 +13,7 @@ public class Bat : Enemy
     {
         health = 1;
         speed = 2;
-        damage = 1;
+        damage = 5;
         attackDelay = 1;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }

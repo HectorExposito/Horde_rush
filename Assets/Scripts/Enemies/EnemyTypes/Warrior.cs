@@ -10,9 +10,9 @@ public class Warrior : Enemy
     }
     public override void InitialValues(EnemyType enemyType)
     {
-        health = 100;
+        health = 30;
         speed = 1.5f;
-        damage = 5;
+        damage = 20;
         attackDelay = 3;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }

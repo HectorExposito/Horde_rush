@@ -9,7 +9,7 @@ public class SpeedPotion : MonoBehaviour
     void Start()
     {
         timeToPickUp = 0.5f;
-        increase = 0.20f; 
+        increase = 0.10f; 
     }
     private void Update()
     {

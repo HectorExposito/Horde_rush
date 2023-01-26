@@ -19,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         //initialValues();
-        numberOfEnemies = 30;
         spawnEnemy();
 
     }

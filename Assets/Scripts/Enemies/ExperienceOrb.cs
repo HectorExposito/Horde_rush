@@ -2,24 +2,22 @@ using UnityEngine;
 
 public class ExperienceOrb : MonoBehaviour
 {
-    public Sprite smallExperience;
-    public Sprite mediumExperience;
-    public Sprite bigExperience;
+    public ExperienceSize experienceSize;
 
     public int experience;
     void Start()
     {
-        experience = Random.Range(1,30);
-        if (experience < 10)
+        switch (experienceSize)
         {
-            this.GetComponent<SpriteRenderer>().sprite = smallExperience;
-        }else if (experience<20)
-        {
-            this.GetComponent<SpriteRenderer>().sprite = mediumExperience;
-        }
-        else if(experience<30)
-        {
-            this.GetComponent<SpriteRenderer>().sprite = bigExperience;
+            case ExperienceSize.SMALL:
+                experience = 10;
+                break;
+            case ExperienceSize.MEDIUM:
+                experience = 20;
+                break;
+            case ExperienceSize.BIG:
+                experience = 30;
+                break;
         }
     }
 
@@ -32,5 +30,10 @@ public class ExperienceOrb : MonoBehaviour
             FindObjectOfType<ExperienceBarManager>().updateExperienceBar(experience);
             
         }
+    }
+
+    public enum ExperienceSize
+    {
+        BIG,MEDIUM,SMALL
     }
 }

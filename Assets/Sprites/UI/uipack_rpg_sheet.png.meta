@@ -200,6 +200,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: backgroundHabilitiesSelection
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 39
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21d550e7077a68940a8800da10c39b08
+      internalID: -155900469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HabilityBackground
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 124
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545f89f0d2d9eea449f38e8239b4c496
+      internalID: -49049317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconContainer
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 364
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01205c4754317ac4fa71842b081b4923
+      internalID: -158827482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -213,6 +276,9 @@ TextureImporter:
     nameFileIdTable:
       uipack_rpg_sheet_3: -1642730256
       uipack_rpg_sheet_0: 1269772728
+      HabilityBackground: -49049317
+      IconContainer: -158827482
+      backgroundHabilitiesSelection: -155900469
       uipack_rpg_sheet_1: 1324069143
       uipack_rpg_sheet_2: 2004302
   spritePackingTag: 

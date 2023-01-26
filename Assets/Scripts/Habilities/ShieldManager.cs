@@ -16,12 +16,12 @@ public class ShieldManager : MonoBehaviour
         if (num<85)
         {
             GetComponent<SpriteRenderer>().sprite = smallShield;
-            increment = 0.2f;
+            increment = 0.1f;
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = bigShield;
-            increment = 0.4f;
+            increment = 0.2f;
         }
     }
     private void Update()

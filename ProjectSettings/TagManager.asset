@@ -23,6 +23,9 @@ TagManager:
   - Spear
   - TwistedWand
   - ExperienceOrb
+  - HabilityIcon
+  - HabilityName
+  - HabilityDescription
   layers:
   - Default
   - TransparentFX

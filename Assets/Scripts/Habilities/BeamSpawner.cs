@@ -67,12 +67,12 @@ public class BeamSpawner : MonoBehaviour
             case 1:
                 numberOfBeams = 1;
                 damage = 20;
-                speed = 3;
+                speed = 6;
                 attackDelay = 10;
                 break;
             case 2:
                 numberOfBeams = 2;
-                speed = 4;
+                speed = 8;
                 break;
             case 3:
                 damage = 30;
@@ -80,14 +80,12 @@ public class BeamSpawner : MonoBehaviour
                 break;
             case 4:
                 numberOfBeams = 3;
-                speed = 5;
+                speed = 10;
                 attackDelay = 5;
                 break;
             case 5:
                 numberOfBeams = 4;
                 damage = 40;
-                speed = 5;
-                attackDelay = 5;
                 break;
             default:
                 break;

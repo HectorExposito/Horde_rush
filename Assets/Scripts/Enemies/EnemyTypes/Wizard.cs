@@ -8,9 +8,9 @@ public class Wizard : Enemy
     }
     public override void InitialValues(EnemyType enemyType)
     {
-        health = 100;
+        health = 30;
         speed = 1;
-        damage = 1;
+        damage = 7;
         attackDelay = 3;
         sprite = EnemiesList.instance.GetSprite(enemyType);
     }
